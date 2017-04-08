@@ -302,3 +302,25 @@ INSERT INTO Employers (EmployerID, Name, Phone, AddressID)
 	
 INSERT INTO Employers (EmployerID, Name, Phone, AddressID) 
 	VALUES (5, 'Shufflebeat', '1-347-304-6240', 30);
+
+
+-- Unfinished INSERTS
+-- Donation data INSERTS
+INSERT INTO Donation (DonationID, Amount_Pledged, Letter_Sent, Amount_Paid, DonorID)
+	VALUES (1, 4000.00, 0, 3050.50, 114);
+INSERT INTO Donation (DonationID, Amount_Pledged, Letter_Sent, Amount_Paid, DonorID)
+	VALUES (2, 200.00, 1, 200.00, 101);
+INSERT INTO Donation (DonationID, Amount_Pledged, Letter_Sent, Amount_Paid, DonorID)
+	VALUES (3, 100.00, 1, 100.00, 124);
+INSERT INTO Donation (DonationID, Amount_Pledged, Letter_Sent, Amount_Paid, DonorID)
+	VALUES (4, 150.00, 0, 0.00, 125);
+INSERT INTO Donation (DonationID, Amount_Pledged, Letter_Sent, Amount_Paid, DonorID)
+	VALUES (5, 2000.00, 1, 2000.00, 120);
+INSERT INTO Donation (DonationID, Amount_Pledged, Letter_Sent, Amount_Paid, DonorID)
+	VALUES (6, 2.00, 1, 2.00, 115);
+
+-- PaymentPlan data INSERTS
+
+INSERT INTO PaymentPlan(PaymentPlanID, Number_Of_Payments, DueDate, TotalPaymentsMade, Installment_Amount, Last_Payment_Date, DonationID)
+	VALUES (10001, 4, TO_DATE('2017/05/03 23:59:59', 'yyyy/mm/dd hh24:mi:ss'), 3, 1000.00, TO_DATE('2017/04/07 12:59:46', 'yyyy/mm/dd hh24:mi:ss'), 1);
+

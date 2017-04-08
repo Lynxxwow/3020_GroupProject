@@ -65,8 +65,8 @@ CREATE TABLE Donation(
 	Amount_Pledged NUMBER(38,2) NOT NULL,
 	Letter_Sent NUMBER(1,0),
 	Amount_Paid NUMBER(38,2),
-  DonorID NUMBER(38,0),
-	CONSTRAINT Donation_PK PRIMARY KEY(DonationId),
+  	DonorID NUMBER(38,0),
+  CONSTRAINT Donation_PK PRIMARY KEY(DonationId),
   CONSTRAINT Donation_FK FOREIGN KEY(DonorID)
     REFERENCES Donor(DonorID)
 );
@@ -112,7 +112,7 @@ CREATE TABLE Employers(
 CREATE TABLE PaymentPlan(
   PaymentPlanID NUMBER(38,0) NOT NULL,
   Number_Of_Payments NUMBER(38,0) NOT NULL,
-  DueDate NUMBER(38,0) NOT NULL,
+  DueDate DATE NOT NULL,
   TotalPaymentsMade NUMBER(38,0),
   Installment_Amount NUMBER(38,2) NOT NULL,
   Last_Payment_Date DATE,
