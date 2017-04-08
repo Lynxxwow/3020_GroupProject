@@ -290,3 +290,19 @@ INSERT INTO Event (EventID, Name, Event_Date, Description, AddressID)
 INSERT INTO Event (EventID, Name, Event_Date, Description, AddressID) 
 	VALUES (7, 'End of Semester Bash', '22-MAR-2018', 'convallis morbi odio odio 
   elementum eu interdum eu tincidunt in leo maecenas pulvinar lobortis est phasellus', 37);
+
+-- Employer data INSERTS  
+INSERT INTO Employer (EmployerID, Name, Phone, AddressID) 
+	VALUES (1, 'Mybuzz', '1-416-530-5367', 26);
+	
+INSERT INTO Employer (EmployerID, Name, Phone, AddressID) 
+	VALUES (2, 'Riffwire', '1-587-273-4325', 27);
+	
+INSERT INTO Employer (EmployerID, Name, Phone, AddressID) 
+	VALUES (3, 'Flipstorm', '1-625-787-8658', 28);
+	
+INSERT INTO Employer (EmployerID, Name, Phone, AddressID) 
+	VALUES (4, 'Topicblab', '1-232-241-6747', 29);
+	
+INSERT INTO Employer (EmployerID, Name, Phone, AddressID) 
+	VALUES (5, 'Shufflebeat', '1-347-304-6240', 30);
