@@ -2,7 +2,7 @@
 - File Name: GroupProject_Deliverable1.sql
 - Created By: Crystal Combs, Matthew Luc, Charles Wigle, and Jonathan Quilliams
 - Created: 3/20/17
-- Last Edit: 4/6/17
+- Last Edit: 4/7/17
 ******************************************************************************/
 
 
