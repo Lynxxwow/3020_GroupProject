@@ -8,15 +8,14 @@
 /*               Last Modified: 04-07-2017                                   /
 /****************************************************************************/
 
-/* RULES for keeping this the same on all of our schemas. Use your assigned
-    id numbers for creating any entries into the database. Make sure all 
+/* RULES for keeping this the same on all of our schemas.  Make sure all 
     entries can be tracked to each other and work from the non-foreign key 
     tables to the outmost tables in the design. 
-    ID NUMBERS:
-        Crystal Combs: 1-25
-        Charles Wigle: 26-50
-        Jonathan Quilliams: 51-75
-        Matthew Luc: 76-100
+        
+		Crystal Combs: ERD AND TABLE CREATE revisions
+		Charles Wigle: Donor TABLE INSERT data entries, other TABLE INSERT edits
+		Jonathan Quilliams: Executive Summary
+		Matthew Luc: Address, Employer, and Event TABLE INSERT data entries
         
         We are using GitHub to keep this as one document. Please commit changes
         at the end of every session you do and remember to clone it again
@@ -24,9 +23,6 @@
         changes!
         
         GITHUB LINK: https://github.com/CombsC/3020_GroupProject
-        
-      WE NEED TO REDESIGN THE DATABASE FAIRLY QUICKLY BASED ON THE GRADE 
-      SHEET WE RECIVED FROM DELIVERABLE 1!!!
   */    
   
   
