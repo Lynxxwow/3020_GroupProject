@@ -304,7 +304,7 @@ INSERT INTO Employers (EmployerID, Name, Phone, AddressID)
 	VALUES (5, 'Shufflebeat', '1-347-304-6240', 30);
 
 
--- Unfinished INSERTS
+
 -- Donation data INSERTS
 INSERT INTO Donation (DonationID, Amount_Pledged, Letter_Sent, Amount_Paid, DonorID)
 	VALUES (1, 4000.00, 0, 3050.50, 114);
