@@ -99,9 +99,12 @@ CREATE TABLE Employers(
 	Name VARCHAR2(30),
 	Phone VARCHAR2(15),
 	AddressId NUMBER(38,0),
+	DonorID NUMBER(38,0) NOT NULL,
 	CONSTRAINT EmployerID PRIMARY KEY(EmployerID),
 	CONSTRAINT Employer_Address_FK FOREIGN KEY(AddressID)
-		REFERENCES Address(AddressID)
+		REFERENCES Address(AddressID),
+	CONSTRAINT Emp_Donor FOREIGN KEY(DonorID)
+		REFERENCES Donor(DonorID)
 );
 
 /*
