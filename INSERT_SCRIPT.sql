@@ -161,7 +161,7 @@ INSERT INTO Donor (DonorID, FirstName, LastName, Phone, Circle_Level, Total_Dona
   
 INSERT INTO Donor (DonorID, FirstName, LastName, Phone, Circle_Level, Total_Donations,
     ClassYear, CoordinatorID, SpouseID, AddressID) 
-    VALUES (104, 'Penelope', 'Rodriquez', '1-299-244-0302', NULL, 60.00, 2015, 103, NULL, 5);
+    VALUES (104, 'Penelope', 'Rodriquez', '1-299-244-0302', 'Contributor', 60.00, 2015, 103, NULL, 5);
     
 INSERT INTO Donor (DonorID, FirstName, LastName, Phone, Circle_Level, Total_Donations,
     ClassYear, CoordinatorID, SpouseID, AddressID) 
@@ -289,20 +289,20 @@ INSERT INTO Event (EventID, Name, Event_Date, Description, AddressID)
   elementum eu interdum eu tincidunt in leo maecenas pulvinar lobortis est phasellus', 37);
 
 -- Employers data INSERTS  
-INSERT INTO Employers (EmployerID, Name, Phone, AddressID) 
-	VALUES (1, 'Mybuzz', '1-416-530-5367', 26);
+INSERT INTO Employers (EmployerID, Name, Phone, AddressID, DonorID) 
+	VALUES (1, 'Mybuzz', '1-416-530-5367', 26, 120);
 	
-INSERT INTO Employers (EmployerID, Name, Phone, AddressID) 
-	VALUES (2, 'Riffwire', '1-587-273-4325', 27);
+INSERT INTO Employers (EmployerID, Name, Phone, AddressID, DonorID) 
+	VALUES (2, 'Riffwire', '1-587-273-4325', 27, 127);
 	
-INSERT INTO Employers (EmployerID, Name, Phone, AddressID) 
-	VALUES (3, 'Flipstorm', '1-625-787-8658', 28);
+INSERT INTO Employers (EmployerID, Name, Phone, AddressID, DonorID) 
+	VALUES (3, 'Flipstorm', '1-625-787-8658', 28, 100);
 	
-INSERT INTO Employers (EmployerID, Name, Phone, AddressID) 
-	VALUES (4, 'Topicblab', '1-232-241-6747', 29);
+INSERT INTO Employers (EmployerID, Name, Phone, AddressID, DonorID) 
+	VALUES (4, 'Topicblab', '1-232-241-6747', 29, 111);
 	
-INSERT INTO Employers (EmployerID, Name, Phone, AddressID) 
-	VALUES (5, 'Shufflebeat', '1-347-304-6240', 30);
+INSERT INTO Employers (EmployerID, Name, Phone, AddressID, DonorID) 
+	VALUES (5, 'Shufflebeat', '1-347-304-6240', 30, 121);
 
 
 -- Donation data INSERTS
@@ -364,8 +364,28 @@ INSERT INTO Donation (DonationID, Amount_Pledged, Letter_Sent, Amount_Paid, Dono
 	VALUES (30, 30.00, 1, 30.00, 125);
 INSERT INTO Donation (DonationID, Amount_Pledged, Letter_Sent, Amount_Paid, DonorID)
 	VALUES (31, 50.00, 1, 50.00, 126); 
+INSERT INTO Donation (DonationID, Amount_Pledged, Letter_Sent, Amount_Paid, DonorID)
+	VALUES (32, 80000.00, 1, 80000.00, 120); 
+INSERT INTO Donation (DonationID, Amount_Pledged, Letter_Sent, Amount_Paid, DonorID)
+	VALUES (33, 2000000.00, 1, 2000000.00, 127); 
+INSERT INTO Donation (DonationID, Amount_Pledged, Letter_Sent, Amount_Paid, DonorID)
+	VALUES (34, 600.00, 1, 600.00, 100); 
+INSERT INTO Donation (DonationID, Amount_Pledged, Letter_Sent, Amount_Paid, DonorID)
+	VALUES (34, 8000.00, 1, 8000.00, 111); 
+INSERT INTO Donation (DonationID, Amount_Pledged, Letter_Sent, Amount_Paid, DonorID)
+	VALUES (34, 18000.00, 1, 18000.00, 121); 
  
-  
+--EmployerPayment INSERTS
+INSERT INTO EmployerPayment(Employer_PaymentID, PaymentMethod, DonationID, Amount, EmployerID)
+	VALUES(1, 'Check', 32, 80000.00, 1);
+INSERT INTO EmployerPayment(Employer_PaymentID, PaymentMethod, DonationID, Amount, EmployerID)
+	VALUES(2, 'Cash', 33, 2000000.00, 2);
+INSERT INTO EmployerPayment(Employer_PaymentID, PaymentMethod, DonationID, Amount, EmployerID)
+	VALUES(3, 'Check', 34, 600.00, 3);
+INSERT INTO EmployerPayment(Employer_PaymentID, PaymentMethod, DonationID, Amount, EmployerID)
+	VALUES(4, 'Check', 35, 8000.00, 4);
+INSERT INTO EmployerPayment(Employer_PaymentID, PaymentMethod, DonationID, Amount, EmployerID)
+	VALUES(5, 'Check', 36, 18000.00, 5);
   
 -- PaymentPlan data INSERTS
 
