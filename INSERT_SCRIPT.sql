@@ -142,121 +142,122 @@ INSERT INTO Address (AddressID, StreetAddress, AptNumber, City, State, Zip)
 -- Donor data INSERTs
 INSERT INTO Donor (DonorID, FirstName, LastName, Phone, Circle_Level, Total_Donations, 
     ClassYear, CoordinatorID, SpouseID, AddressID) 
-    VALUES (100, 'Breanna', 'Woods', '1-435-461-7306', NULL, 50.00, 2014, 100, NULL, 1);
+    VALUES (100, 'Breanna', 'Woods', '1-435-461-7306', 'The Deans Club( >= 500)', 600.00, 2014, 100, NULL, 1);
   
 INSERT INTO Donor (DonorID, FirstName, LastName, Phone, Circle_Level, Total_Donations,
     ClassYear, CoordinatorID, SpouseID, AddressID) 
-    VALUES (101, 'Kiayada', 'Patel', '1-202-689-7746', NULL, 60.00, 2005, 101, NULL, 2);
+    VALUES (101, 'Kiayada', 'Patel', '1-202-689-7746', 'The Scholars Club(>= 250)', 300.00, 2005, 101, NULL, 2);
   
 INSERT INTO Donor (DonorID, FirstName, LastName, Phone, Circle_Level, Total_Donations,
     ClassYear, CoordinatorID, SpouseID, AddressID) 
-    VALUES (102, 'Shelly', 'Velasquez', '1-629-229-2551', 'President( > 50,000)', 65000.00, 2012, 102, NULL, 3);
+    VALUES (102, 'Shelly', 'Velasquez', '1-629-229-2551', 'Presidents Trust Fellow( >= 2,500)', 3000.00, 2012, 102, NULL, 3);
 
 ALTER TABLE Donor 
     DISABLE CONSTRAINT Spouse_FK;
 
 INSERT INTO Donor (DonorID, FirstName, LastName, Phone, Circle_Level, Total_Donations,
     ClassYear, CoordinatorID, SpouseID, AddressID) 
-    VALUES (103, 'Len', 'Boyle', '1-394-969-2802', 'Platinum( > 25,000)', 48000.50, 2015, 103, 113, 4);
+    VALUES (103, 'Len', 'Boyle', '1-394-969-2802', 'Presidents Trust Patron( >= 25K)', 48000.50, 2015, 103, 113, 4);
   
 INSERT INTO Donor (DonorID, FirstName, LastName, Phone, Circle_Level, Total_Donations,
     ClassYear, CoordinatorID, SpouseID, AddressID) 
-    VALUES (104, 'Penelope', 'Rodriquez', '1-299-244-0302', NULL, 2.00, 2015, 103, NULL, 5);
+    VALUES (104, 'Penelope', 'Rodriquez', '1-299-244-0302', NULL, 60.00, 2015, 103, NULL, 5);
     
 INSERT INTO Donor (DonorID, FirstName, LastName, Phone, Circle_Level, Total_Donations,
     ClassYear, CoordinatorID, SpouseID, AddressID) 
-    VALUES (105, 'Shaeleigh', 'Day', '1-719-404-7537', 'Platinum( > 25,000)', 28000.00, 2007, 105, 107, 6);
+    VALUES (105, 'Shaeleigh', 'Day', '1-719-404-7537', 'Presidents Trust( >= 1,000)', 1100.00, 2007, 105, 107, 6);
   
 INSERT INTO Donor (DonorID, FirstName, LastName, Phone, Circle_Level, Total_Donations,
     ClassYear, CoordinatorID, SpouseID, AddressID) 
-    VALUES (106, 'Hamish', 'Sargent', '1-657-392-0235', NULL, 99.99, 2013, 106, NULL, 7);
+    VALUES (106, 'Hamish', 'Sargent', '1-657-392-0235', 'Contributor', 99.99, 2013, 106, NULL, 7);
   
 INSERT INTO Donor (DonorID, FirstName, LastName, Phone, Circle_Level, Total_Donations,
     ClassYear, CoordinatorID, SpouseID, AddressID) 
-    VALUES (107, 'Ulysses', 'Day', '1-910-478-8959', 'Platinum( > 25,000)', 45000.50, 2006, 107, 105, 6);
+    VALUES (107, 'Ulysses', 'Day', '1-910-478-8959', 'Presidents Trust Patron( >= 25K)', 45000.50, 2006, 107, 105, 6);
   
 INSERT INTO Donor (DonorID, FirstName, LastName, Phone, Circle_Level, Total_Donations,
     ClassYear, CoordinatorID, SpouseID, AddressID) 
-    VALUES (108, 'Ivan', 'Williamson', '1-671-417-7942', 'President( > 50,000)', 100000.00, 2015, 103, NULL, 8);
+    VALUES (108, 'Ivan', 'Williamson', '1-671-417-7942', 'Contributor', 80.00, 2015, 103, NULL, 8);
   
 INSERT INTO Donor (DonorID, FirstName, LastName, Phone, Circle_Level, Total_Donations,
     ClassYear, CoordinatorID, SpouseID, AddressID) 
-    VALUES (109, 'Maya', 'Dorsey', '1-184-231-4384', NULL, 70.00, 2013, 106, NULL, 9);
+    VALUES (109, 'Maya', 'Dorsey', '1-184-231-4384', 'Contributor', 70.00, 2013, 106, NULL, 9);
   
 INSERT INTO Donor (DonorID, FirstName, LastName, Phone, Circle_Level, Total_Donations,
     ClassYear, CoordinatorID, SpouseID, AddressID) 
-    VALUES (110, 'Haley', 'Mcguire', '1-989-823-6721', NULL, 10.50, 2007, 105, NULL, 10);
+    VALUES (110, 'Haley', 'Mcguire', '1-989-823-6721', 'Contributor', 10.50, 2007, 105, NULL, 10);
   
 INSERT INTO Donor (DonorID, FirstName, LastName, Phone, Circle_Level, Total_Donations,
     ClassYear, CoordinatorID, SpouseID, AddressID) 
-    VALUES (111, 'Odessa', 'Ferguson', '1-120-892-2875', 'Platinum( > 25,000)', 50000.00, 2005, 101, NULL, 11);
+    VALUES (111, 'Odessa', 'Ferguson', '1-120-892-2875', 'Presidents Trust Sponsor( >= 5K)', 8000.00, 2005, 101, NULL, 11);
   
 INSERT INTO Donor (DonorID, FirstName, LastName, Phone, Circle_Level, Total_Donations,
     ClassYear, CoordinatorID, SpouseID, AddressID) 
-    VALUES (112, 'September', 'Leon', '1-444-750-6564', NULL, 5.00, 2005, 101, 124, 19);
+    VALUES (112, 'September', 'Leon', '1-444-750-6564', 'Presidents Trust Founder( >= 10K)', 16000.00, 2005, 101, 124, 19);
   
 INSERT INTO Donor (DonorID, FirstName, LastName, Phone, Circle_Level, Total_Donations,
     ClassYear, CoordinatorID, SpouseID, AddressID) 
-    VALUES (113, 'Noble', 'Boyle', '1-276-180-4167', NULL, 1.99, 2013, 106, 103, 4);
+    VALUES (113, 'Noble', 'Boyle', '1-276-180-4167', 'Contributor', 1.99, 2013, 106, 103, 4);
   
 INSERT INTO Donor (DonorID, FirstName, LastName, Phone, Circle_Level, Total_Donations,
     ClassYear, CoordinatorID, SpouseID, AddressID) 
-    VALUES (114, 'Mannix', 'Finch', '1-814-683-0111', 'President( > 50,000)', 52000.00, 2013, 106, NULL, 12);
+    VALUES (114, 'Mannix', 'Finch', '1-814-683-0111', 'Presidents Trust Bronze( >= 50K)', 52000.00, 2013, 106, NULL, 12);
   
 INSERT INTO Donor (DonorID, FirstName, LastName, Phone, Circle_Level, Total_Donations,
     ClassYear, CoordinatorID, SpouseID, AddressID) 
-    VALUES (115, 'Halee', 'Cline', '1-558-241-0602', NULL, 3.50, 2007, 105, NULL, 13);
+    VALUES (115, 'Halee', 'Cline', '1-558-241-0602', 'Presidents Trust Bronze( >= 50K)', , 2007, 105, NULL, 13);
   
 INSERT INTO Donor (DonorID, FirstName, LastName, Phone, Circle_Level, Total_Donations,
     ClassYear, CoordinatorID, SpouseID, AddressID) 
-    VALUES (116, 'Burton', 'Garcia', '1-112-523-6414', 'Platinum( > 25,000)', 40000.50, 2008, 116, NULL, 14);
+    VALUES (116, 'Burton', 'Garcia', '1-112-523-6414', 'Presidents Trust Silver( >= 100K )' , 120000.50, 2008, 116, NULL, 14);
   
 INSERT INTO Donor (DonorID, FirstName, LastName, Phone, Circle_Level, Total_Donations,
     ClassYear, CoordinatorID, SpouseID, AddressID) 
-    VALUES (117, 'Lucas', 'Lawson', '1-613-231-0702', NULL, 20.00, 2005, 101, NULL, 15);
+    VALUES (117, 'Lucas', 'Lawson', '1-613-231-0702', 'Contributor', 20.00, 2005, 101, NULL, 15);
   
 INSERT INTO Donor (DonorID, FirstName, LastName, Phone, Circle_Level, Total_Donations,
     ClassYear, CoordinatorID, SpouseID, AddressID) 
-    VALUES (118, 'Octavia', 'Tyler', '1-527-327-1697', 'Platinum( > 25,000)', 30000.00, 2005, 101, NULL, 16);
+    VALUES (118, 'Octavia', 'Tyler', '1-527-327-1697', 'Presidents Trust Patron( >= 25K)', 30000.00, 2005, 101, NULL, 16);
   
 INSERT INTO Donor (DonorID, FirstName, LastName, Phone, Circle_Level, Total_Donations,
     ClassYear, CoordinatorID, SpouseID, AddressID) 
-    VALUES (119, 'Caldwell', 'Romero', '1-179-716-7972', 'Platinum( > 25,000)', 26000.00, 2011, 119, NULL, 17);
+    VALUES (119, 'Caldwell', 'Romero', '1-179-716-7972', 'Presidents Trust Bronze( >= 50K)', 68000.00, 2011, 119, NULL, 17);
   
 INSERT INTO Donor (DonorID, FirstName, LastName, Phone, Circle_Level, Total_Donations,
     ClassYear, CoordinatorID, SpouseID, AddressID) 
-    VALUES (120, 'Zephr', 'Craig', '1-594-377-8763', 'President( > 50,000)', 80000.00, 2013, 106, NULL, 18);
+    VALUES (120, 'Zephr', 'Craig', '1-594-377-8763', 'Presidents Trust Bronze( >= 50K)', 80000.00, 2013, 106, NULL, 18);
   
 INSERT INTO Donor (DonorID, FirstName, LastName, Phone, Circle_Level, Total_Donations,
     ClassYear, CoordinatorID, SpouseID, AddressID) 
-    VALUES (121, 'Nichole', 'Clements', '1-712-746-4031', 'President( > 50,000)', 70000.00, 2015, 103, NULL, 20);
+    VALUES (121, 'Nichole', 'Clements', '1-712-746-4031', 'Presidents Trust Founder( >= 10K)', 18000.00, 2015, 103, NULL, 20);
   
 INSERT INTO Donor (DonorID, FirstName, LastName, Phone, Circle_Level, Total_Donations,
     ClassYear, CoordinatorID, SpouseID, AddressID) 
-    VALUES (122, 'Hollee', 'Deleon', '1-105-701-0098', 'President( > 50,000)', 67000.40, 2014, 101, NULL, 21);
+    VALUES (122, 'Hollee', 'Deleon', '1-105-701-0098', 'Presidents Trust Bronze( >= 50K)', 67000.40, 2014, 101, NULL, 21);
   
 INSERT INTO Donor (DonorID, FirstName, LastName, Phone, Circle_Level, Total_Donations,
     ClassYear, CoordinatorID, SpouseID, AddressID) 
-    VALUES (123, 'Imelda', 'Hughes', '1-925-509-8051', 'Platinum( > 25,000)', 35000.00, 2011, 119, NULL, 22);
+    VALUES (123, 'Imelda', 'Hughes', '1-925-509-8051', 'Presidents Trust Diamond( >= 5 Million)', 6000000.00, 2011, 119, NULL, 22);
   
 INSERT INTO Donor (DonorID, FirstName, LastName, Phone, Circle_Level, Total_Donations,
     ClassYear, CoordinatorID, SpouseID, AddressID) 
-    VALUES(124, 'Reese', 'Matthews', '1-888-107-6273', NULL, 40.00, 2010, 124, 112, 19);
+    VALUES(124, 'Reese', 'Matthews', '1-888-107-6273', 'Presidents Trust Gold( >= 500K)', 550000.00, 2010, 124, 112, 19);
 
 INSERT INTO Donor (DonorID, FirstName, LastName, Phone, Circle_Level, Total_Donations,
     ClassYear, CoordinatorID, SpouseID, AddressID) 
-    VALUES(125, 'Bob', 'Bobs', '1-838-302-9302', NULL, 30.00, 2010, 124, NULL, 23);
+    VALUES(125, 'Bob', 'Bobs', '1-838-302-9302', 'Contributor', 30.00, 2010, 124, NULL, 23);
 
 INSERT INTO Donor (DonorID, FirstName, LastName, Phone, Circle_Level, Total_Donations,
     ClassYear, CoordinatorID, SpouseID, AddressID) 
-    VALUES(126, 'Luke', 'Marks', '1-432-425-3829', NULL, 49.00, 2012, 102, NULL, 24);
+    VALUES(126, 'Luke', 'Marks', '1-432-425-3829', 'Contributor', 50.00, 2012, 102, NULL, 24);
 
 INSERT INTO Donor (DonorID, FirstName, LastName, Phone, Circle_Level, Total_Donations,
     ClassYear, CoordinatorID, SpouseID, AddressID) 
-    VALUES(127, 'Warner', 'Wabe', '1-402-134-3923', NULL, 10.50, 2006, 107, NULL, 25);  
+    VALUES(127, 'Warner', 'Wabe', '1-402-134-3923', 'Presidents Trust Platinum( >= 1 Million)', 2000000.00, 2006, 107, NULL, 25);  
   
 ALTER TABLE Donor
     ENABLE CONSTRAINT Spouse_FK;
+
 
 -- Event data INSERTs
 INSERT INTO Event (EventID, Name, Event_Date, Description, AddressID) 
@@ -304,21 +305,68 @@ INSERT INTO Employers (EmployerID, Name, Phone, AddressID)
 	VALUES (5, 'Shufflebeat', '1-347-304-6240', 30);
 
 
-
 -- Donation data INSERTS
 INSERT INTO Donation (DonationID, Amount_Pledged, Letter_Sent, Amount_Paid, DonorID)
 	VALUES (1, 4000.00, 0, 3050.50, 114);
 INSERT INTO Donation (DonationID, Amount_Pledged, Letter_Sent, Amount_Paid, DonorID)
-	VALUES (2, 200.00, 1, 200.00, 101);
-INSERT INTO Donation (DonationID, Amount_Pledged, Letter_Sent, Amount_Paid, DonorID)
-	VALUES (3, 100.00, 1, 100.00, 124);
-INSERT INTO Donation (DonationID, Amount_Pledged, Letter_Sent, Amount_Paid, DonorID)
-	VALUES (4, 150.00, 0, 0.00, 125);
+	VALUES (3, 550000.00, 1, 550000.00, 124);
 INSERT INTO Donation (DonationID, Amount_Pledged, Letter_Sent, Amount_Paid, DonorID)
 	VALUES (5, 2000.00, 1, 2000.00, 120);
 INSERT INTO Donation (DonationID, Amount_Pledged, Letter_Sent, Amount_Paid, DonorID)
-	VALUES (6, 2.00, 1, 2.00, 115);
-
+	VALUES (6, 77000.00, 1, 77000.00, 115);
+INSERT INTO Donation (DonationID, Amount_Pledged, Letter_Sent, Amount_Paid, DonorID)
+	VALUES (7, 6000000.00, 1, 6000000.00, 123);  
+INSERT INTO Donation (DonationID, Amount_Pledged, Letter_Sent, Amount_Paid, DonorID)
+	VALUES (8, 2000000.00, 1, 2000000.00, 127);
+INSERT INTO Donation (DonationID, Amount_Pledged, Letter_Sent, Amount_Paid, DonorID)
+	VALUES (9, 120000.50, 1, 120000.50, 116);
+INSERT INTO Donation (DonationID, Amount_Pledged, Letter_Sent, Amount_Paid, DonorID)
+	VALUES (10, 16000.00, 1, 16000.00, 112);
+INSERT INTO Donation (DonationID, Amount_Pledged, Letter_Sent, Amount_Paid, DonorID)
+	VALUES (11, 8000.00, 1, 8000.00, 111);
+INSERT INTO Donation (DonationID, Amount_Pledged, Letter_Sent, Amount_Paid, DonorID)
+	VALUES (12, 3000.00, 1, 3000.00, 102);
+INSERT INTO Donation (DonationID, Amount_Pledged, Letter_Sent, Amount_Paid, DonorID)
+	VALUES (13, 1100.00, 1, 1100.00, 105);
+INSERT INTO Donation (DonationID, Amount_Pledged, Letter_Sent, Amount_Paid, DonorID)
+	VALUES (14, 600.00, 1, 600.00, 100);
+INSERT INTO Donation (DonationID, Amount_Pledged, Letter_Sent, Amount_Paid, DonorID)
+	VALUES (15, 300.00, 1, 300.00, 101);
+INSERT INTO Donation (DonationID, Amount_Pledged, Letter_Sent, Amount_Paid, DonorID)
+	VALUES (16, 60.00, 1, 60.00, 104);
+INSERT INTO Donation (DonationID, Amount_Pledged, Letter_Sent, Amount_Paid, DonorID)
+	VALUES (17, 48000.00, 1, 48000.00, 103);
+INSERT INTO Donation (DonationID, Amount_Pledged, Letter_Sent, Amount_Paid, DonorID)
+	VALUES (18, 99.99, 1, 99.99, 106);
+INSERT INTO Donation (DonationID, Amount_Pledged, Letter_Sent, Amount_Paid, DonorID)
+	VALUES (19, 45000.50, 1, 45000.50, 107);
+INSERT INTO Donation (DonationID, Amount_Pledged, Letter_Sent, Amount_Paid, DonorID)
+	VALUES (20, 80.00, 1, 80.00, 108);
+INSERT INTO Donation (DonationID, Amount_Pledged, Letter_Sent, Amount_Paid, DonorID)
+	VALUES (21, 70.00, 1, 70.00, 109);
+INSERT INTO Donation (DonationID, Amount_Pledged, Letter_Sent, Amount_Paid, DonorID)
+	VALUES (22, 10.50, 1, 10.50, 110);
+INSERT INTO Donation (DonationID, Amount_Pledged, Letter_Sent, Amount_Paid, DonorID)
+	VALUES (23, 1.99, 1, 1.99, 113);
+INSERT INTO Donation (DonationID, Amount_Pledged, Letter_Sent, Amount_Paid, DonorID)
+	VALUES (24, 20.00, 1, 20.00, 117);
+INSERT INTO Donation (DonationID, Amount_Pledged, Letter_Sent, Amount_Paid, DonorID)
+	VALUES (25, 30000.00, 1, 30000.00, 118); 
+INSERT INTO Donation (DonationID, Amount_Pledged, Letter_Sent, Amount_Paid, DonorID)
+	VALUES (26, 68000.00, 1, 68000.00, 119); 
+INSERT INTO Donation (DonationID, Amount_Pledged, Letter_Sent, Amount_Paid, DonorID)
+	VALUES (27, 80000.00, 1, 80000.00, 120); 
+INSERT INTO Donation (DonationID, Amount_Pledged, Letter_Sent, Amount_Paid, DonorID)
+	VALUES (28, 18000.00, 1, 18000.00, 121);
+INSERT INTO Donation (DonationID, Amount_Pledged, Letter_Sent, Amount_Paid, DonorID)
+	VALUES (29, 67000.40, 1, 67000.40, 122);
+INSERT INTO Donation (DonationID, Amount_Pledged, Letter_Sent, Amount_Paid, DonorID)
+	VALUES (30, 30.00, 1, 30.00, 125);
+INSERT INTO Donation (DonationID, Amount_Pledged, Letter_Sent, Amount_Paid, DonorID)
+	VALUES (31, 50.00, 1, 50.00, 126); 
+ 
+  
+  
 -- PaymentPlan data INSERTS
 
 INSERT INTO PaymentPlan(PaymentPlanID, Number_Of_Payments, DueDate, TotalPaymentsMade, Installment_Amount, Last_Payment_Date, DonationID)
