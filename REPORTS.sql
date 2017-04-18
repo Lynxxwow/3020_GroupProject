@@ -112,11 +112,11 @@ amount received so far, and the date of the previous payment, if any.*/
   
       CURSOR cCurse IS
       
-      SELECT e.Name, e.Phone, a.City, a.State, a.Zip, 
-          a.StreetAddress, ep.Amount, d.FirstName || ' ' || d.LastName AS donorName 
+      SELECT e.Name AS empName, e.Phone AS Phone, a.City AS Cty, a.State AS St, a.Zip AS Zp, 
+          a.StreetAddress AS street, ep.Amount AS Amt, d.FirstName || ' ' || d.LastName AS donorName 
       FROM EMPLOYERPAYMENT ep
-      JOIN Address a ON e.AddressID = a.AddressID
-      JOIN Employers e ON ep.EmployerID = e.EmployerID
+      JOIN Employers e ON ep.EmployerID = e.EmployerId
+      JOIN Address a ON e.AddressId = a.AddressID
       JOIN Donor d ON e.DonorID = d.DonorID
       ORDER BY ep.Amount;
       
@@ -124,22 +124,25 @@ amount received so far, and the date of the previous payment, if any.*/
     
     BEGIN
     
-      FOR cRow IN cCurse LOOP
+      OPEN cCurse;
+      LOOP
+      FETCH cCurse INTO cRow;
+      Exit WHEN cCurse%NOTFOUND;
     
-          DBMS_OUTPUT.PUT_LINE('Employer Name : ' || cRow.Name);
+          DBMS_OUTPUT.PUT_LINE('Employer Name : ' || cRow.empName);
           DBMS_OUTPUT.PUT_LINE('Phone Number : ' || cRow.Phone);
-          DBMS_OUTPUT.PUT_LINE('Street Address : ' || cRow.StreetAddress);
-          DBMS_OUTPUT.PUT_LINE('City : ' || cRow.City); 
-          DBMS_OUTPUT.PUT_LINE('State: ' || cRow.State);
-          DBMS_OUTPUT.PUT_LINE('ZIP: ' || cRow.Zip);
-          DBMS_OUTPUT.PUT_LINE('Amount Matched: ' || c.Row.Amount);
+          DBMS_OUTPUT.PUT_LINE('Street Address : ' || cRow.street);
+          DBMS_OUTPUT.PUT_LINE('City : ' || cRow.Cty); 
+          DBMS_OUTPUT.PUT_LINE('State: ' || cRow.St);
+          DBMS_OUTPUT.PUT_LINE('ZIP: ' || cRow.Zp);
+          DBMS_OUTPUT.PUT_LINE('Amount Matched: ' || cRow.Amt);
           DBMS_OUTPUT.PUT_LINE('Donor Matched From: ' || cRow.donorName);
           DBMS_OUTPUT.PUT_LINE('*************************************');
           DBMS_OUTPUT.NEW_LINE;
           DBMS_OUTPUT.NEW_LINE;
       
       END LOOP;
-    
+    CLOSE cCurse;
     END EMPLOYER_MATCHES;    
     
 END REPORTS;
