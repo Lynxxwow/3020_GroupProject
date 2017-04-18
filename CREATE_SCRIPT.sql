@@ -42,7 +42,7 @@ CREATE TABLE Donor(
   FirstName VARCHAR2(125) NOT NULL,
   LastName VARCHAR(125)NOT NULL,
   Phone VARCHAR2(15),
-  Circle_Level VARCHAR2(25),
+  Circle_Level VARCHAR2(50),
   Total_Donations NUMBER (38, 2),
   ClassYear NUMBER(4),
   CoordinatorID NUMBER(38,0),
