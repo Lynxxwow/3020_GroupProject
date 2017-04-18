@@ -1,15 +1,27 @@
+/****************************************************************************/
+/*               GROUP PROJECT:  REPORTING SCRIPT                            /
+/*                                                                           /
+/*               Created By: Crystal Combs, Matthew Luc, Charles             /
+/*                           Wigle & Jonathan Quilliams                      /
+/*                                                                           /
+/*               Creation Date: 04-16-2017                                   /
+/*               Last Modified: 04-18-2017                                   /
+/****************************************************************************/
 set serveroutput on;
 
-CREATE OR REPLACE PACKAGE REPORTS IS
+CREATE OR REPLACE PACKAGE REPORTS AS
 
     PROCEDURE MONTHLY_REPORT; 
     PROCEDURE PHONOTHON_CONTACT_LIST;
     PROCEDURE EMPLOYER_MATCHES;
-
+    PROCEDURE ANNUAL_REPORT;
+    PROCEDURE DONORS_CIRCLES_LIST;
+    PROCEDURE SUMMARY_ANNUAL_TOTALS;
+    
 END REPORTS;
 /
 
-CREATE OR REPLACE PACKAGE BODY REPORTS IS
+CREATE OR REPLACE PACKAGE BODY REPORTS AS
 
 
 /*Suzanne would like a report each month listing the pledge payments that were due that month but were
@@ -144,14 +156,74 @@ amount received so far, and the date of the previous payment, if any.*/
       END LOOP;
     CLOSE cCurse;
     END EMPLOYER_MATCHES;    
+  
+    /* Annual Report - This report lists the donor name along with their 
+  corresponding Donor Circle. If the total donations for a donor meet or exceed
+  the giving level, they will become a memeber of the respective Donor Circle.
+  
+  This report also displays summaries, including the total amount raised from 
+  all sources, the total for each class, the percent participation in each 
+  class, the total for each category, the grand total for each Donor Circle, and
+  the class total for each donor circle.*/
+  
+  PROCEDURE ANNUAL_REPORT IS
+  
+    BEGIN
+      DONORS_CIRCLES_LIST;
+      SUMMARY_ANNUAL_TOTALS;
+    END;
     
+/* DONORS_CIRCLES_LIST - This Procedure is used within Annual Report. It grabs
+   the donor's name along with their respective donor circle. */
+    
+  PROCEDURE DONORS_CIRCLES_LIST IS
+  
+    CURSOR cDonorList IS -- Creates cursor for navigating through the result set
+      
+      SELECT LastName, 
+             FirstName, 
+             Circle_Level, 
+             Total_Donations
+      FROM Donor;
+      
+    rDonor cDonorList%ROWTYPE;
+      
+    BEGIN
+      OPEN cDonorList;
+      LOOP
+        FETCH cDonorList INTO rDonor;
+        EXIT WHEN cDonorList%NOTFOUND;
+        
+        DBMS_OUTPUT.PUT_LINE(rDonor.LastName || ' | ' || 
+                             rDonor.FirstName || ' | ' ||
+                             rDonor.Circle_Level || ' | ' ||
+                             rDonor.Total_Donations);
+        
+      END LOOP;
+      
+      CLOSE cDonorList;
+      
+      NULL;
+  END;
+  
+/* SUMMARY_ANNUAL_TOTALS - Is called by the Annual Report, displaying calculated
+   summaries for the Year*/
+   
+  PROCEDURE SUMMARY_ANNUAL_TOTALS IS
+  
+  BEGIN
+    NULL;
+  END;
+  
 END REPORTS;
 /
 
-
+/* -- TESTING -- */
 
 EXEC REPORTS.MONTHLY_REPORT;
 
 EXEC REPORTS.PHONOTHON_CONTACT_LIST;
 
 EXEC REPORTS.EMPLOYER_MATCHES;
+
+EXEC REPORTS.ANNUAL_REPORT;
