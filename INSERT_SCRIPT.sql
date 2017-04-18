@@ -205,7 +205,7 @@ INSERT INTO Donor (DonorID, FirstName, LastName, Phone, Circle_Level, Total_Dona
   
 INSERT INTO Donor (DonorID, FirstName, LastName, Phone, Circle_Level, Total_Donations,
     ClassYear, CoordinatorID, SpouseID, AddressID) 
-    VALUES (115, 'Halee', 'Cline', '1-558-241-0602', 'Presidents Trust Bronze( >= 50K)', , 2007, 105, NULL, 13);
+    VALUES (115, 'Halee', 'Cline', '1-558-241-0602', 'Presidents Trust Bronze( >= 50K)', 77000.00, 2007, 105, NULL, 13);
   
 INSERT INTO Donor (DonorID, FirstName, LastName, Phone, Circle_Level, Total_Donations,
     ClassYear, CoordinatorID, SpouseID, AddressID) 
@@ -371,9 +371,9 @@ INSERT INTO Donation (DonationID, Amount_Pledged, Letter_Sent, Amount_Paid, Dono
 INSERT INTO Donation (DonationID, Amount_Pledged, Letter_Sent, Amount_Paid, DonorID)
 	VALUES (34, 600.00, 1, 600.00, 100); 
 INSERT INTO Donation (DonationID, Amount_Pledged, Letter_Sent, Amount_Paid, DonorID)
-	VALUES (34, 8000.00, 1, 8000.00, 111); 
+	VALUES (35, 8000.00, 1, 8000.00, 111); 
 INSERT INTO Donation (DonationID, Amount_Pledged, Letter_Sent, Amount_Paid, DonorID)
-	VALUES (34, 18000.00, 1, 18000.00, 121); 
+	VALUES (36, 18000.00, 1, 18000.00, 121); 
  
 --EmployerPayment INSERTS
 INSERT INTO EmployerPayment(Employer_PaymentID, PaymentMethod, DonationID, Amount, EmployerID)
