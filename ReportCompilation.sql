@@ -44,29 +44,29 @@ CREATE OR REPLACE PACKAGE BODY REPORTS IS
     
 	END EVENT_REPORT;
 
-	PROCEDURE CLASS_REP_CONTACT_LIST IS
+  PROCEDURE CLASS_REP_CONTACT_LIST IS
 
 		CURSOR crcReport IS
     
 		SELECT d.CoordinatorID AS ClRep, d.LastName AS LName, 
 			d.FirstName AS FName, d.Phone AS PNum, a.City AS Cty, 
 			a.State AS Ste, a.Zip AS Zp, a.StreetAddress AS SAddress, 
-			a.AptNumber AS AptNum
+			a.AptNumber AS AptNum,
       
-      /*group by coodinatorID
+      -- group by coodinatorID
       -- last year donation info, this year's donation info
-			LYDonation AS "(SELECT SUM(Amount_Pledged) 
-						  FROM Donation 
+      TO_CHAR((SELECT SUM(Amount_Pledged) FROM Donation 
+               LEFT JOIN Donor ON Donation.DonorID = Donor.DonorID
+						   LEFT JOIN EventDonors ON Donor.DonorID = EventDonors.DonorID
+						   LEFT JOIN Event ON EventDonors.EventID = Event.EventID
+						   WHERE Event.Event_Date BETWEEN '01-JAN-2016' AND '31-DEC-2016'),
+               '9999999.99') AS LYDonation,
+      TO_CHAR((SELECT SUM(Amount_Pledged) FROM Donation 
               LEFT JOIN Donor ON Donation.DonorID = Donor.DonorID
 						  LEFT JOIN EventDonors ON Donor.DonorID = EventDonors.DonorID
 						  LEFT JOIN Event ON EventDonors.EventID = Event.EventID
-						  WHERE Event.Event_Date BETWEEN '01-JAN-2016' AND '31-DEC-2016';)",
-			TYDonation AS "(SELECT SUM(Amount_Pledged) 
-						  FROM Donation 
-              LEFT JOIN Donor ON Donation.DonorID = Donor.DonorID
-						  LEFT JOIN EventDonors ON Donor.DonorID = EventDonors.DonorID
-						  LEFT JOIN Event ON EventDonors.EventID = Event.EventID
-						  WHERE Event.Event_Date BETWEEN '01-JAN-2017' AND '31-DEC-2017';)"*/
+						  WHERE Event.Event_Date BETWEEN '01-JAN-2017' AND '31-DEC-2017'),
+              '9999999.99')AS TYDonation
 		FROM Donor d
 		INNER JOIN Address a ON d.AddressID = a.AddressID
 		INNER JOIN Donation do ON d.DonorID = do.DonorID
@@ -86,8 +86,11 @@ CREATE OR REPLACE PACKAGE BODY REPORTS IS
 			DBMS_OUTPUT.PUT_LINE('ZIP: ' || cRow.Zp);
 			DBMS_OUTPUT.PUT_LINE('Street Address : ' || cRow.SAddress);
 			DBMS_OUTPUT.PUT_LINE('Apartment Number : ' || cRow.AptNum);
-			/*DBMS_OUTPUT.PUT_LINE('Donation Last Year : '  || cRow.LYDonation);
-			DBMS_OUTPUT.PUT_LINE('Donation This Year : '  || cRow.TYDonation);*/
+			DBMS_OUTPUT.PUT_LINE('Donation Last Year : '  || cRow.LYDonation);
+			DBMS_OUTPUT.PUT_LINE('Donation This Year : '  || cRow.TYDonation);
+			DBMS_OUTPUT.PUT_LINE('*************************************');
+			DBMS_OUTPUT.NEW_LINE;
+			DBMS_OUTPUT.NEW_LINE;
 
 		END LOOP;
 
