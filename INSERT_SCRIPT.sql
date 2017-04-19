@@ -391,4 +391,15 @@ INSERT INTO EmployerPayment(Employer_PaymentID, PaymentMethod, DonationID, Amoun
 
 INSERT INTO PaymentPlan(PaymentPlanID, Number_Of_Payments, DueDate, TotalPaymentsMade, Installment_Amount, Last_Payment_Date, DonationID)
 	VALUES (10001, 4, TO_DATE('2017/05/03 23:59:59', 'yyyy/mm/dd hh24:mi:ss'), 3, 1000.00, TO_DATE('2017/04/07 12:59:46', 'yyyy/mm/dd hh24:mi:ss'), 1);
+	
+-- EventDonors data INSERTS
+
+INSERT INTO EventDonors(EventDonationId, DonorId, EventId) VALUES (1, 102, 1);
+INSERT INTO EventDonors(EventDonationId, DonorId, EventId) VALUES (3, 102, 3);
+INSERT INTO EventDonors(EventDonationId, DonorId, EventId) VALUES (5, 101, 5);
+INSERT INTO EventDonors(EventDonationId, DonorId, EventId) VALUES (6, 113, 6);
+INSERT INTO EventDonors(EventDonationId, DonorId, EventId) VALUES (7, 118, 7);
+INSERT INTO EventDonors(EventDonationId, DonorId, EventId) VALUES (8, 127, 3);
+INSERT INTO EventDonors(EventDonationId, DonorId, EventId) VALUES (9, 107, 7);
+INSERT INTO EventDonors(EventDonationId, DonorId, EventId) VALUES (10, 121, 3);
 
