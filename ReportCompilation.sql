@@ -86,6 +86,9 @@ CREATE OR REPLACE PACKAGE BODY REPORTS AS
 			DBMS_OUTPUT.PUT_LINE('Name : ' || cRow.LName || ', ' || cRow.FName);
 			DBMS_OUTPUT.PUT_LINE('Amount Pledged : ' || cRow.DoPledge);
 			DBMS_OUTPUT.PUT_LINE('Amount Received : ' || cRow.DoPaid);
+			DBMS_OUTPUT.PUT_LINE('*************************************');
+			DBMS_OUTPUT.NEW_LINE;
+			DBMS_OUTPUT.NEW_LINE;
       
 		END LOOP;
     
@@ -134,9 +137,9 @@ CREATE OR REPLACE PACKAGE BODY REPORTS AS
 			DBMS_OUTPUT.PUT_LINE('Apartment Number : ' || cRow.AptNum);
 			DBMS_OUTPUT.PUT_LINE('Donation Last Year : '  || cRow.LYDonation);
 			DBMS_OUTPUT.PUT_LINE('Donation This Year : '  || cRow.TYDonation);
-      DBMS_OUTPUT.PUT_LINE('*************************************');
-      DBMS_OUTPUT.NEW_LINE;
-      DBMS_OUTPUT.NEW_LINE;
+			DBMS_OUTPUT.PUT_LINE('*************************************');
+			DBMS_OUTPUT.NEW_LINE;
+			DBMS_OUTPUT.NEW_LINE;
 
 		END LOOP;
 
