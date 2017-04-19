@@ -1,6 +1,6 @@
-SET serveroutput ON;
+set serveroutput on;
 
-CREATE OR REPLACE PACKAGE REPORTS IS
+CREATE OR REPLACE PACKAGE REPORTS AS
 
     PROCEDURE ANNUAL_REPORT;
     PROCEDURE MONTHLY_REPORT(yr VARCHAR2, mnth VARCHAR2); 
@@ -16,17 +16,17 @@ END REPORTS;
 
 CREATE OR REPLACE PACKAGE BODY REPORTS AS
 
-  PROCEDURE MONTHLY_REPORT(yr VARCHAR2, mnth VARCHAR2) IS
+  PROCEDURE MONTHLY_REPORT (yr VARCHAR2, mnth VARCHAR2) IS
   
       CURSOR mReports IS
   
       SELECT d.LastName AS LName, d.FirstName AS FName, a.City AS Cty, 
           a.State AS Ste, a.Zip AS Zp, a.StreetAddress AS SAddress, 
           a.AptNumber AS AptNum, TO_CHAR(do.Amount_Pledged - do.Amount_Paid, 
-          '9999999.99') AS Amt_Due, TO_CHAR(pp.DueDate, 'DD-MON-YYYY') AS DDate, 
+          '9999999.99') AS Amt_Due, TO_CHAR(pp.DueDate, 'DD-MON-YY') AS DDate, 
           TO_CHAR(do.Amount_Pledged, '9999999.99') AS Amt_Pledged, 
           TO_CHAR(do.Amount_Paid, '9999999.99') AS Amt_Paid, 
-          TO_CHAR(pp.Last_Payment_Date, 'DD-MON-YYYY') AS LPayDate
+          TO_CHAR(pp.Last_Payment_Date, 'DD-MON-YY') AS LPayDate
       FROM Donor d 
       INNER JOIN Address a ON d.AddressID = a.AddressID
       INNER JOIN Donation do ON d.DonorID = do.DonorID
@@ -63,7 +63,7 @@ CREATE OR REPLACE PACKAGE BODY REPORTS AS
     
     END MONTHLY_REPORT;
     
-  PROCEDURE EVENT_REPORT IS
+PROCEDURE EVENT_REPORT IS
 
 		CURSOR evReport IS
 
@@ -92,8 +92,7 @@ CREATE OR REPLACE PACKAGE BODY REPORTS AS
       
 		END LOOP;
     
-	END EVENT_REPORT;
-
+END EVENT_REPORT;
 
   PROCEDURE CLASS_REP_CONTACT_LIST IS
 
@@ -137,9 +136,9 @@ CREATE OR REPLACE PACKAGE BODY REPORTS AS
 			DBMS_OUTPUT.PUT_LINE('Apartment Number : ' || cRow.AptNum);
 			DBMS_OUTPUT.PUT_LINE('Donation Last Year : '  || cRow.LYDonation);
 			DBMS_OUTPUT.PUT_LINE('Donation This Year : '  || cRow.TYDonation);
-			DBMS_OUTPUT.PUT_LINE('*************************************');
-			DBMS_OUTPUT.NEW_LINE;
-			DBMS_OUTPUT.NEW_LINE;
+      DBMS_OUTPUT.PUT_LINE('*************************************');
+      DBMS_OUTPUT.NEW_LINE;
+      DBMS_OUTPUT.NEW_LINE;
 
 		END LOOP;
 
@@ -288,7 +287,8 @@ END REPORTS;
 /* -- TESTING -- */
 
 EXEC REPORTS.ANNUAL_REPORT;
-EXEC REPORTS.MONTHLY_REPORT ('2017', 'APR'); -- YYYY, MON
+-- YYYY, MON
+EXEC REPORTS.MONTHLY_REPORT('2017', 'APR'); 
 EXEC REPORTS.EVENT_REPORT;
 EXEC REPORTS.CLASS_REP_CONTACT_LIST;
 EXEC REPORTS.PHONOTHON_CONTACT_LIST;
