@@ -392,6 +392,77 @@ INSERT INTO EmployerPayment(Employer_PaymentID, PaymentMethod, DonationID, Amoun
 INSERT INTO PaymentPlan(PaymentPlanID, Number_Of_Payments, DueDate, TotalPaymentsMade, Installment_Amount, Last_Payment_Date, DonationID)
 	VALUES (10001, 4, TO_DATE('2017/05/03 23:59:59', 'yyyy/mm/dd hh24:mi:ss'), 3, 1000.00, TO_DATE('2017/04/07 12:59:46', 'yyyy/mm/dd hh24:mi:ss'), 1);
 	
+-- Payment data INSERTS
+
+INSERT INTO Payment (PaymentID, PaymentMethod, DonationID, Amount, DateOfPayment) 
+	VALUES (1, 'Deferred', 1, 3050.50, '08-Oct-2016');
+INSERT INTO  Payment (PaymentID, PaymentMethod, DonationID, Amount, DateOfPayment) 
+	VALUES (3, 'Check', 3, 550000.00, '05-Jun-2016');
+INSERT INTO  Payment (PaymentID, PaymentMethod, DonationID, Amount, DateOfPayment) 
+	VALUES (5, 'Check', 5, 2000.00, '16-Feb-2017');
+INSERT INTO  Payment (PaymentID, PaymentMethod, DonationID, Amount, DateOfPayment) 
+	VALUES (6, 'Credit Card', 6, 77000.00, '26-Jul-2016');
+INSERT INTO  Payment (PaymentID, PaymentMethod, DonationID, Amount, DateOfPayment) 
+	VALUES (7, 'Check', 7, 6000000.00, '14-May-2016');
+INSERT INTO  Payment (PaymentID, PaymentMethod, DonationID, Amount, DateOfPayment) 
+	VALUES (8, 'Check', 8, 2000000.00, '25-Oct-2016');
+INSERT INTO  Payment (PaymentID, PaymentMethod, DonationID, Amount, DateOfPayment) 
+	VALUES (9, 'Check', 9, 120000.50, '13-May-2016');
+INSERT INTO  Payment (PaymentID, PaymentMethod, DonationID, Amount, DateOfPayment) 
+	VALUES (10, 'Deferred', 10, 16000.00, '30-Mar-2017');
+INSERT INTO  Payment (PaymentID, PaymentMethod, DonationID, Amount, DateOfPayment) 
+	VALUES (11, 'Credit Card', 11, 8000.00, '09-Apr-2017');
+INSERT INTO  Payment (PaymentID, PaymentMethod, DonationID, Amount, DateOfPayment) 
+	VALUES (12, 'Check', 12, 3000.00, '31-Dec-2016');
+INSERT INTO  Payment (PaymentID, PaymentMethod, DonationID, Amount, DateOfPayment) 
+	VALUES (13, 'Credit Card', 13, 1100.00, '11-Oct-2016');
+INSERT INTO  Payment (PaymentID, PaymentMethod, DonationID, Amount, DateOfPayment) 
+	VALUES (14, 'Check', 14, 600.00, '27-Sep-2016');
+INSERT INTO  Payment (PaymentID, PaymentMethod, DonationID, Amount, DateOfPayment) 
+	VALUES (15, 'Deferred', 15, 300.00, '22-Mar-2017');
+INSERT INTO  Payment (PaymentID, PaymentMethod, DonationID, Amount, DateOfPayment) 
+	VALUES (16, 'Credit Card', 16, 60.00, '14-Mar-2017');
+INSERT INTO  Payment (PaymentID, PaymentMethod, DonationID, Amount, DateOfPayment) 
+	VALUES (17, 'Credit Card', 17, 48000.00, '11-Oct-2016');
+INSERT INTO  Payment (PaymentID, PaymentMethod, DonationID, Amount, DateOfPayment) 
+	VALUES (18, 'Credit Card', 18, 99.99, '21-Apr-2016');
+INSERT INTO  Payment (PaymentID, PaymentMethod, DonationID, Amount, DateOfPayment) 
+	VALUES (19, 'Check', 19, 45000.50, '05-Jul-2016');
+INSERT INTO  Payment (PaymentID, PaymentMethod, DonationID, Amount, DateOfPayment) 
+	VALUES (20, 'Check', 20, 80.00, '24-Sep-2016');
+INSERT INTO  Payment (PaymentID, PaymentMethod, DonationID, Amount, DateOfPayment) 
+	VALUES (21, 'Credit Card', 21, 70.00, '06-Feb-2017');
+INSERT INTO  Payment (PaymentID, PaymentMethod, DonationID, Amount, DateOfPayment) 
+	VALUES (22, 'Credit Card', 22, 10.50, '09-Aug-2016');
+INSERT INTO  Payment (PaymentID, PaymentMethod, DonationID, Amount, DateOfPayment) 
+	VALUES (23, 'Check', 23, 1.99, '28-Feb-2017');
+INSERT INTO  Payment (PaymentID, PaymentMethod, DonationID, Amount, DateOfPayment) 
+	VALUES (24, 'Credit Card', 24, 20.00, '22-Dec-2016');
+INSERT INTO  Payment (PaymentID, PaymentMethod, DonationID, Amount, DateOfPayment) 
+	VALUES (25, 'Check', 25, 30000.00, '10-Sep-2016');
+INSERT INTO  Payment (PaymentID, PaymentMethod, DonationID, Amount, DateOfPayment) 
+	VALUES (26, 'Deferred', 26, 68000.00, '23-Aug-2016');
+INSERT INTO  Payment (PaymentID, PaymentMethod, DonationID, Amount, DateOfPayment) 
+	VALUES (27, 'Credit Card', 27, 80000.00, '13-Sep-2016');
+INSERT INTO  Payment (PaymentID, PaymentMethod, DonationID, Amount, DateOfPayment) 
+	VALUES (28, 'Check', 28, 18000.00, '30-Sep-2016');
+INSERT INTO  Payment (PaymentID, PaymentMethod, DonationID, Amount, DateOfPayment) 
+	VALUES (29, 'Credit Card', 29, 67000.40, '30-Apr-2016');
+INSERT INTO  Payment (PaymentID, PaymentMethod, DonationID, Amount, DateOfPayment) 
+	VALUES (30, 'Check', 30, 30.00, '23-Aug-2016');
+INSERT INTO  Payment (PaymentID, PaymentMethod, DonationID, Amount, DateOfPayment) 
+	VALUES (31, 'Credit Card', 31, 50.00, '06-Nov-2016');
+INSERT INTO  Payment (PaymentID, PaymentMethod, DonationID, Amount, DateOfPayment) 
+	VALUES (32, 'Credit Card', 32, 80000.00, '15-Mar-2017');
+INSERT INTO  Payment (PaymentID, PaymentMethod, DonationID, Amount, DateOfPayment) 
+	VALUES (33, 'Deferred', 33, 2000000.00, '19-Dec-2016');
+INSERT INTO  Payment (PaymentID, PaymentMethod, DonationID, Amount, DateOfPayment) 
+	VALUES (34, 'Check', 34, 600.00, '26-Nov-2016');
+INSERT INTO  Payment (PaymentID, PaymentMethod, DonationID, Amount, DateOfPayment) 
+	VALUES (35, 'Credit Card', 35, 8000.00, '27-Jan-2017');
+INSERT INTO  Payment (PaymentID, PaymentMethod, DonationID, Amount, DateOfPayment) 
+	VALUES (36, 'Check', 36, 18000.00, '04-Nov-2016');
+
 -- EventDonors data INSERTS
 
 INSERT INTO EventDonors(EventDonationId, DonorId, EventId) VALUES (1, 102, 1);
