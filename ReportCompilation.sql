@@ -275,9 +275,131 @@ END EVENT_REPORT;
    summaries for the Year*/
    
   PROCEDURE SUMMARY_ANNUAL_TOTALS IS
+  -- Grand Total
+  CURSOR cGrandTotal IS
+    SELECT SUM(do.AMOUNT_PAID) AS "Total"
+    FROM DONOR d, DONATION do
+    WHERE do.DONORID = d.DONORID;
+  rGrandTotal cGrandTotal%ROWTYPE;
   
-    BEGIN
-      NULL;
+  -- Total by Class
+  CURSOR cClassTotal IS
+    SELECT UNIQUE d.ClassYear, 
+           SUM(do.AMOUNT_PAID) AS "TotalClass"
+    FROM DONOR d, DONATION do
+    WHERE do.DONORID = d.DONORID
+    GROUP BY d.ClassYear
+    ORDER BY "TotalClass" DESC;
+  rClassTotal cClassTotal%ROWTYPE;
+  
+  -- Class Participation
+  CURSOR cClassPart IS
+    SELECT UNIQUE d.ClassYear, 
+           (SUM(do.AMOUNT_PAID)/(SELECT SUM(don.AMOUNT_PAID)
+             FROM DONOR dn, DONATION don
+             WHERE don.DONORID = dn.DONORID))*100 AS "Percent"
+    FROM DONOR d, DONATION do
+    WHERE do.DONORID = d.DONORID
+    GROUP BY d.ClassYear
+    ORDER BY "Percent" DESC;
+  rClassPart cClassPart%ROWTYPE;
+    
+  -- Total by Category
+  CURSOR cCategTotal IS
+    SELECT UNIQUE d.CATEG AS, 
+           SUM(do.AMOUNT_PAID) AS "TotalCateg"
+    FROM Donor d, Donation do
+    WHERE do.DONORID = d.DONORID
+    GROUP BY d.CATEG
+    ORDER BY "TotalCateg" DESC;
+  rCategTotal cCategTotal%ROWTYPE;
+  
+  -- Total by Donor Circle
+  CURSOR cCircleTotal IS
+    SELECT UNIQUE d.Circle_Level, 
+           SUM(do.AMOUNT_PAID) AS "TotalCircle"
+    FROM Donor d, Donation do
+    WHERE do.DONORID = d.DONORID
+    GROUP BY d.Circle_Level
+    ORDER BY "TotalCircle" DESC;
+  rCircleTotal cCircleTotal%ROWTYPE;
+  
+  -- Total Donor Circle and Year
+  CURSOR cCircleYearTotal IS
+    SELECT UNIQUE d.Circle_Level, d.ClassYear,
+           SUM(do.AMOUNT_PAID) AS "TotalCircleYear"
+    FROM Donor d, Donation do
+    WHERE do.DONORID = d.DONORID
+    GROUP BY d.Circle_Level, d.ClassYear
+    ORDER BY "TotalCircleYear" DESC;
+  rCircleYearTotal cCircleYearTotal%ROWTYPE;
+  
+  BEGIN    
+    OPEN cGrandTotal;
+    OPEN cClassTotal;
+    OPEN cClassPart;
+    OPEN cCategTotal;
+    OPEN cCircleTotal;
+    OPEN cCircleYearTotal;
+    
+    DBMS_OUTPUT.PUT_LINE('------- Total Gross Donations ---------');
+    LOOP
+      FETCH cGrandTotal INTO rGrandTotal;
+      EXIT WHEN cGrandTotal%NOTFOUND;
+      DBMS_OUTPUT.PUT_LINE(rGrandTotal."Total");
+    END LOOP;
+    
+    DBMS_OUTPUT.NEW_LINE;
+    DBMS_OUTPUT.PUT_LINE('------- Total Donations by Class ---------');
+    DBMS_OUTPUT.PUT_LINE('------------- Year / Total ---------------');
+    LOOP
+      FETCH cClassTotal INTO rClassTotal;
+      EXIT WHEN cClassTotal%NOTFOUND;
+      DBMS_OUTPUT.PUT_LINE(rClassTotal.ClassYear || '   /   ' || rClassTotal."TotalClass");
+    END LOOP;
+    
+    DBMS_OUTPUT.NEW_LINE;
+    DBMS_OUTPUT.PUT_LINE('--------- Participation by Class ---------');
+    DBMS_OUTPUT.PUT_LINE('------------ Year / Percent --------------');
+    LOOP
+      FETCH cClassPart INTO rClassPart;
+      EXIT WHEN cClassPart%NOTFOUND;
+      DBMS_OUTPUT.PUT_LINE(rClassPart.ClassYear || '   /   ' || rClassPart."Percent" );
+    END LOOP;
+    
+    DBMS_OUTPUT.NEW_LINE;
+    DBMS_OUTPUT.PUT_LINE('--------- Total Donations by Category ---------');
+    DBMS_OUTPUT.PUT_LINE('-------------- Category / Total ---------------');
+    LOOP
+      FETCH cCategTotal INTO rCategTotal;
+      EXIT WHEN cCategTotal%NOTFOUND;
+      DBMS_OUTPUT.PUT_LINE(rCategTotal.CATEG || '   /   ' || rCategTotal."TotalCateg" );
+    END LOOP;
+    
+    DBMS_OUTPUT.NEW_LINE;
+    DBMS_OUTPUT.PUT_LINE('--------- Total Donations by Circle ---------');
+    DBMS_OUTPUT.PUT_LINE('-------------- Circle / Total ---------------');
+    LOOP
+      FETCH cCircleTotal INTO rCircleTotal;
+      EXIT WHEN cCircleTotal%NOTFOUND;
+      DBMS_OUTPUT.PUT_LINE(rCircleTotal.Circle_Level || '   /   ' || rCircleTotal."TotalCircle" );
+    END LOOP;
+    
+    DBMS_OUTPUT.NEW_LINE;
+    DBMS_OUTPUT.PUT_LINE('--------- Total Donations by Circle/Year ---------');
+    DBMS_OUTPUT.PUT_LINE('------------- Circle / Year / Total --------------');
+    LOOP
+      FETCH cCircleYearTotal INTO rCircleYearTotal;
+      EXIT WHEN cCircleYearTotal%NOTFOUND;
+      DBMS_OUTPUT.PUT_LINE(rCircleYearTotal.Circle_Level || '   /   ' || rCircleYearTotal.ClassYear || '   /   ' || rCircleYearTotal."TotalCircleYear" );
+    END LOOP;
+    
+    CLOSE cGrandTotal;
+    CLOSE cClassTotal;
+    CLOSE cClassPart;
+    CLOSE cCategTotal;
+    CLOSE cCircleTotal;
+    CLOSE cCircleYearTotal;
   END SUMMARY_ANNUAL_TOTALS;
 
 END REPORTS;
@@ -293,5 +415,3 @@ EXEC REPORTS.EVENT_REPORT;
 EXEC REPORTS.CLASS_REP_CONTACT_LIST;
 EXEC REPORTS.PHONOTHON_CONTACT_LIST;
 EXEC REPORTS.EMPLOYER_MATCHES; 
-EXEC REPORTS.DONORS_CIRCLES_LIST;
-EXEC REPORTS.SUMMARY_ANNUAL_TOTALS;
