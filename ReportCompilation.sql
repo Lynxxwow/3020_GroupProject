@@ -36,6 +36,9 @@ CREATE OR REPLACE PACKAGE BODY REPORTS IS
 			DBMS_OUTPUT.PUT_LINE('Name : ' || cRow.LName || ', ' || cRow.FName);
 			DBMS_OUTPUT.PUT_LINE('Amount Pledged : ' || cRow.DoPledge);
 			DBMS_OUTPUT.PUT_LINE('Amount Received : ' || cRow.DoPaid);
+			DBMS_OUTPUT.PUT_LINE('*************************************');
+            DBMS_OUTPUT.NEW_LINE;
+            DBMS_OUTPUT.NEW_LINE;
       
 		END LOOP;
     
