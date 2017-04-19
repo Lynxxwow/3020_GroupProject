@@ -12,7 +12,7 @@ set serveroutput on;
 CREATE OR REPLACE PACKAGE REPORTS AS
 
     PROCEDURE ANNUAL_REPORT;
-    PROCEDURE MONTHLY_REPORT(yr VARCHAR2, mnth VARCHAR2); 
+    PROCEDURE MONTHLY_REPORT_PAYDUE(yr VARCHAR2, mnth VARCHAR2); 
     PROCEDURE EVENT_REPORT;
     PROCEDURE CLASS_REP_CONTACT_LIST;
     PROCEDURE PHONOTHON_CONTACT_LIST;
@@ -28,7 +28,7 @@ CREATE OR REPLACE PACKAGE BODY REPORTS AS
 /*Suzanne would like a report each month listing the pledge payments that were due that month but were
 not received. It should list the donor’s name and address, the amount due, the date due, the amount of the pledge, the
 amount received so far, and the date of the previous payment, if any.*/
-  PROCEDURE MONTHLY_REPORT (yr VARCHAR2, mnth VARCHAR2) IS
+  PROCEDURE MONTHLY_REPORT_PAYDUE (yr VARCHAR2, mnth VARCHAR2) IS
   
       CURSOR mReports IS
   
@@ -73,7 +73,7 @@ amount received so far, and the date of the previous payment, if any.*/
     
       END LOOP;
     
-    END MONTHLY_REPORT;
+    END MONTHLY_REPORT_PAYDUE;
     
 PROCEDURE EVENT_REPORT IS
 
@@ -429,7 +429,7 @@ END REPORTS;
 
 EXEC REPORTS.ANNUAL_REPORT;
 -- YYYY, MON
-EXEC REPORTS.MONTHLY_REPORT('2017', 'APR'); 
+EXEC REPORTS.MONTHLY_REPORT_PAYDUE('2017', 'APR'); 
 EXEC REPORTS.EVENT_REPORT;
 EXEC REPORTS.CLASS_REP_CONTACT_LIST;
 EXEC REPORTS.PHONOTHON_CONTACT_LIST;
