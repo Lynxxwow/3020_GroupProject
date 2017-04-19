@@ -1,3 +1,12 @@
+/****************************************************************************/
+/*               GROUP PROJECT:  REPORTING SCRIPT                            /
+/*                                                                           /
+/*               Created By: Crystal Combs, Matthew Luc, Charles             /
+/*                           Wigle & Jonathan Quilliams                      /
+/*                                                                           /
+/*               Creation Date: 04-16-2017                                   /
+/*               Last Modified: 04-18-2017                                   /
+/****************************************************************************/
 set serveroutput on;
 
 CREATE OR REPLACE PACKAGE REPORTS AS
@@ -16,6 +25,9 @@ END REPORTS;
 
 CREATE OR REPLACE PACKAGE BODY REPORTS AS
 
+/*Suzanne would like a report each month listing the pledge payments that were due that month but were
+not received. It should list the donor’s name and address, the amount due, the date due, the amount of the pledge, the
+amount received so far, and the date of the previous payment, if any.*/
   PROCEDURE MONTHLY_REPORT (yr VARCHAR2, mnth VARCHAR2) IS
   
       CURSOR mReports IS
@@ -143,7 +155,10 @@ END EVENT_REPORT;
 		END LOOP;
 
 	END CLASS_REP_CONTACT_LIST;
-  
+
+/*Phonothon Volunteer Contact List Each volunteer caller is given a list with information about the potential donors he
+  or she is expected to call, including the name, telephone number, address, category, year (if applicable), and last year’s
+  donation information.*/
     PROCEDURE PHONOTHON_CONTACT_LIST IS
   
       CURSOR pvcReports IS
@@ -183,7 +198,11 @@ END EVENT_REPORT;
       END LOOP;
     
     END PHONOTHON_CONTACT_LIST;    
-    
+
+/* This is an open ended report that Lists the Employers that have matched Donor's 
+   donations and lists the information of the Employer, the amount matched and 
+   the Donor the employer employs. 
+*/    
     PROCEDURE EMPLOYER_MATCHES IS
   
       CURSOR cCurse IS
